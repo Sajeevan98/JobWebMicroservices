@@ -1,0 +1,38 @@
+server:
+  port: 8084
+
+# for Postgresql database connection.
+spring:
+  application:
+    name: review-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reviewms
+    username: user
+    password: user
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    databasePlatform: org.hibernate.dialect.PostgreSQLDialect
+
+
+# for Eureka service registry.
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+# zipkin distributed tracing.
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+# set details to "/info" actuator
+info:
+  app:
+    name: review-microservice
+    description: This is a microservice named 'reviewms' for JobWep-application build by Sajeevan.V
+    version: 1.0.0

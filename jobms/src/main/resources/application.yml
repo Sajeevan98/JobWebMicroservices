@@ -1,0 +1,43 @@
+server:
+  port: 8082
+
+# for Postgresql database connection.
+spring:
+  application:
+    name: job-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jobms
+    username: user
+    password: user
+  jpa:
+    database: POSTGRESQL
+#    showSQL: true # for development purpose only...
+    hibernate:
+      ddl-auto: update
+    databasePlatform: org.hibernate.dialect.PostgreSQLDialect
+  # config-server
+  config:
+    import: optional:configserver:http://localhost:8090
+  profiles:
+    active: dev
+
+# for Eureka service registry.
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+# zipkin distributed tracing.
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+# set details to "/info" actuator.
+info:
+  app:
+    name: Job-microservice
+    description: This is a microservice named 'jobms' for JobWep-application build by Sajeevan.V
+    version: 1.0.0

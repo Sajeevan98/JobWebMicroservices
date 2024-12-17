@@ -10,9 +10,6 @@ import com.jobweb.jobms.mapper.JobMapper;
 import com.jobweb.jobms.repository.JobRepository;
 import com.jobweb.jobms.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

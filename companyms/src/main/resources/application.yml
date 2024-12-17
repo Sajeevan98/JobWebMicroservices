@@ -15,7 +15,6 @@ spring:
       ddl-auto: update
     databasePlatform: org.hibernate.dialect.PostgreSQLDialect
 
-
 # Eureka service registry.
 eureka:
   client:
@@ -23,6 +22,10 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+  # gateway - work with service-id in eureka
+  instance:
+    hostname: localhost
+
 
 # zipkin distributed tracing.
 management:
